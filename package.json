@@ -1,0 +1,81 @@
+{
+  "name": "cyberbrain",
+  "private": true,
+  "description": "A storage service for Ghost",
+  "version": "0.1.0",
+  "author": "Tyler Rilling <tyler@underlost.net>",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.18",
+    "@fortawesome/free-brands-svg-icons": "^5.8.2",
+    "@fortawesome/free-solid-svg-icons": "^5.8.2",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "@tryghost/admin-api": "^1.2.0",
+    "@tryghost/helpers": "^1.1.22",
+    "@tryghost/helpers-gatsby": "^1.0.25",
+    "bootstrap": "^4.4.1",
+    "cheerio": "1.0.0-rc.3",
+    "core-js": "^3.6.0",
+    "dayjs": "^1.8.18",
+    "gatsby": "^2.18.25",
+    "gatsby-awesome-pagination": "^0.3.6",
+    "gatsby-image": "^2.2.37",
+    "gatsby-plugin-advanced-sitemap": "^1.5.4",
+    "gatsby-plugin-catch-links": "^2.1.21",
+    "gatsby-plugin-feed": "^2.3.25",
+    "gatsby-plugin-force-trailing-slashes": "1.0.4",
+    "gatsby-plugin-manifest": "^2.2.34",
+    "gatsby-plugin-offline": "^3.0.30",
+    "gatsby-plugin-react-helmet": "^3.1.18",
+    "gatsby-plugin-sass": "^2.1.26",
+    "gatsby-plugin-sharp": "^2.3.10",
+    "gatsby-source-filesystem": "^2.1.43",
+    "gatsby-source-ghost": "4.0.4",
+    "gatsby-transformer-sharp": "^2.3.12",
+    "lodash": "4.17.15",
+    "react": "^16.13.0",
+    "react-bootstrap": "^1.0.1",
+    "react-dom": "^16.13.0",
+    "react-helmet": "^6.0.0",
+    "react-reveal": "^1.2.2",
+    "remarkable": "^2.0.0",
+    "sharp": "^0.25.2"
+  },
+  "devDependencies": {
+    "@types/react": "^16.0.0",
+    "babel-eslint": "^10.1.0",
+    "core-js": "^3.6.0",
+    "eslint": "^7.0.0",
+    "eslint-plugin-ghost": "^1.0.0",
+    "eslint-plugin-react": "^7.17.0",
+    "jquery": "^3.4.1",
+    "node-sass": "^4.9.0",
+    "popper.js": "^1.16.0",
+    "prettier": "^2.0.2",
+    "typescript": ">=3.7.5",
+    "webpack": "^4.41.4"
+  },
+  "keywords": [
+    "gatsby",
+    "ghost",
+    "cyberbrain"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "serve": "gatsby build && NODE_ENV=production gatsby serve",
+    "build": "gatsby build",
+    "dev": "gatsby develop",
+    "clean": "rm -rf .cache && rm -rf ./public",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "lint": "eslint . --ext .js --cache",
+    "fix": "eslint . --ext .js --cache --fix",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bootstrap": "cp -r node_modules/bootstrap/scss/ src/sass/bootstrap/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/underlost/cyberbrain"
+  },
+  "bugs": {
+    "url": "https://github.com/underlost/cyberbrain/issues"
+  }
+}

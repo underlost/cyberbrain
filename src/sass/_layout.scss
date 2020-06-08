@@ -1,0 +1,41 @@
+.site-wrapper {
+  max-width: 600px;
+  margin: auto;
+  position: relative;
+}
+
+.svg-bg-ring {
+  position: absolute;
+  top: 8vh;
+  right: -15vw;
+}
+
+.site-main {
+  background: rgba(248, 248, 242, 0.95);
+  border: 1px solid #D6D5D6;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.10);
+  position: relative;
+  z-index: 10;
+}
+
+.highlight {
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: #f8f9fa;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+
+.site-header {
+  position: relative;
+}
+
+.svg-header-ui {
+  transform: translate3d(-1.75rem, 1rem, 0);
+}
+
+
+.form-group {
+  //border-bottom: 2px solid $primary;
+}

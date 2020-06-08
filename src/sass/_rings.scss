@@ -1,0 +1,27 @@
+.ring-row {
+  transform-origin: center center;
+}
+
+.spin {
+	animation: spin 90s infinite linear;
+}
+
+.spin-2x {
+  animation: spin 120s infinite linear;
+}
+
+.spin-counter {
+  animation: spinCounter 90s infinite linear;
+}
+
+.spin-counter-2x {
+	animation: spinCounter 120s infinite linear;
+}
+
+@keyframes spin {
+	to { transform: rotate(360deg); }
+}
+
+@keyframes spinCounter {
+	to { transform: rotate(-360deg); }
+}
