@@ -37,10 +37,14 @@ const PostsList = ({ pageNumber }) => {
       Current Page: {currentPageState}
       <div className="row">
         <div className="col-6">
-          <button className="btn btn block btn-primary btn-block" onClick={() => setcurrentPageState(prevState => prevState - 1)}>Previous</button>
+          <button className="btn btn block btn-primary btn-block" onClick={() => setcurrentPageState(prevState => prevState - 1)}>
+            Previous
+          </button>
         </div>
         <div className="col-6">
-          <button className="btn btn block btn-primary btn-block" onClick={() => setcurrentPageState(prevState => prevState + 1)}>Next</button>
+          <button className="btn btn block btn-primary btn-block" onClick={() => setcurrentPageState(prevState => prevState + 1)}>
+            Next
+          </button>
         </div>
       </div>
     </>

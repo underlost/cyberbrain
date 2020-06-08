@@ -36,7 +36,7 @@ const Layout = ({ children }) => {
         <Header siteTitle={data.site.siteMetadata.title} />
         <Nav />
         <main className="site-main px-3 px-lg-5 py-3 py-lg-5">{children}</main>
-        <footer className="site-footer py-4">© {new Date().getFullYear()}</footer>
+        <footer className="site-footer py-4">Built by Tyler Rilling. © {new Date().getFullYear()}</footer>
         <SvgRing />
       </div>
     </div>

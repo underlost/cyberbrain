@@ -18,9 +18,7 @@ const Post = ({ data }) => {
           <Modal.Title id="example-custom-modal-styling-title">{post.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>
-            modal body
-          </p>
+          <p>modal body</p>
         </Modal.Body>
       </Modal>
     </>

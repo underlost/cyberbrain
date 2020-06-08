@@ -5,11 +5,7 @@ import { navigate } from 'gatsby'
 
 const LogginWrapper = ({ children }) => {
   if (isLoggedIn()) {
-    return (
-      <div className="loggedIn">
-        {children}
-      </div>
-    )
+    return <div className="loggedIn">{children}</div>
   } else {
     navigate(`/login`)
     return null

@@ -46,13 +46,12 @@ const SettingsPage = () => {
               <input className={`form-control`} type="text" name="siteAPI" value={siteAPIState} onChange={event => setSiteAPIState(event.target.value)} />
             </label>
           </div>
-          <input className={`btn btn-block btn-primary`} type="submit" value="Update Settings" />
+          <input className={`btn btn-block btn-primary text-uppercase`} type="submit" value="Update Settings" />
         </form>
 
         <hr />
 
         <SiteFields />
-
       </Layout>
     </LoginWrapper>
   )

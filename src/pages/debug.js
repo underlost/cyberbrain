@@ -24,19 +24,18 @@ const DebugPage = () => {
 
       <pre className="highlight mb-5">
         <h6>Site Settings localStorage:</h6>
-          URL: {siteName} <br />
-          API: {siteAPI} <br />
-          guid: {getCurrentUser().guid}
+        URL: {siteName} <br />
+        API: {siteAPI} <br />
+        guid: {getCurrentUser().guid}
       </pre>
 
       <pre className="highlight mb-5">
         <h6>Field localStorage:</h6>
-          guid: {fieldsGUID} <br />
+        guid: {fieldsGUID} <br />
         {fieldsState.map((fieldname, index) => (
           <h6 key={index}>{fieldname.text}</h6>
         ))}
       </pre>
-
     </Layout>
   )
 }
