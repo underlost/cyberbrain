@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import Header from './header'
 import Nav from './Nav'
-import SvgRing from './SvgRing'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -37,7 +36,6 @@ const Layout = ({ children }) => {
         <Nav />
         <main className="site-main px-3 px-lg-5 py-3 py-lg-5">{children}</main>
         <footer className="site-footer py-4">Built by Tyler Rilling. © {new Date().getFullYear()}</footer>
-        <SvgRing />
       </div>
     </div>
   )

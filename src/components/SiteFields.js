@@ -104,7 +104,7 @@ const SiteFields = () => {
       <h6>Add New Field</h6>
       <AddFieldNameForm addFieldName={addFieldName} />
       <form onSubmit={saveFields}>
-        <button className="btn btn-primary btn-block">Save Fields</button>
+        <button className="btn btn-primary btn-block ttext-uppercase">Save Fields</button>
       </form>
     </>
   )

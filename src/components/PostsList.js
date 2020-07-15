@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import GhostAdminAPI from '@tryghost/admin-api'
-import Post from './Post'
+import PostItem from './PostItem'
 import { getCurrentUser } from '../util/storage'
 
 const PostsList = ({ pageNumber }) => {
@@ -32,7 +32,7 @@ const PostsList = ({ pageNumber }) => {
   return (
     <>
       {posts.map(obj => (
-        <Post data={obj} key={obj.id} />
+        <PostItem data={obj} key={obj.id} />
       ))}
       Current Page: {currentPageState}
       <div className="row">

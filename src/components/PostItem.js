@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 
-const Post = ({ data }) => {
+const PostItem = ({ data }) => {
   const post = data
   const [show, setShow] = useState(false)
   console.log(data)
@@ -25,12 +25,12 @@ const Post = ({ data }) => {
   )
 }
 
-Post.propTypes = {
+PostItem.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object),
 }
 
-Post.defaultProps = {
+PostItem.defaultProps = {
   data: ``,
 }
 
-export default Post
+export default PostItem

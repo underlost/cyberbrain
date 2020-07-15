@@ -4,9 +4,18 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import LoginWrapper from '../components/LoginWrapper'
 import { getCurrentUser } from '../util/storage'
+import { navigate } from 'gatsby'
 
 const LogoutPage = () => {
   const guid = getCurrentUser().guid
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    localStorage.removeItem(`cyberbrainUser`)
+    localStorage.removeItem(`token`)
+    navigate(`/login`)
+  }
+
   return (
     <LoginWrapper>
       <Layout>
@@ -18,6 +27,15 @@ const LogoutPage = () => {
         <pre className="highlight text-center">
           <h5>{guid}</h5>
         </pre>
+        <form
+          className={`form`}
+          method="post"
+          onSubmit={(event) => {
+            handleSubmit(event)
+            //navigate(`/`)
+          }}>
+          <button className="btn btn-block btn-primary">Logout</button>
+        </form>
       </Layout>
     </LoginWrapper>
   )
