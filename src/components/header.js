@@ -6,7 +6,9 @@ import SvgHeader from './svgHeader'
 const Header = ({ siteTitle }) => (
   <header className="site-header">
     <h1 className="h2 text-lowercase mb-0">
-      <Link to="/">{siteTitle}</Link>
+      <Link to="/" style={{
+        color: `#231f20`,
+      }}>{siteTitle}</Link>
     </h1>
     <SvgHeader />
   </header>

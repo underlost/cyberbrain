@@ -2,12 +2,15 @@ import React, { useState } from 'react'
 import GhostAdminAPI from '@tryghost/admin-api'
 import { getCurrentUser } from '../util/storage'
 import path from 'path'
+import Toast from 'react-bootstrap/Toast'
+import Layout from './layout'
 
 const CreatePost = () => {
   const siteName = getCurrentUser().siteName
   const siteAPI = getCurrentUser().siteAPI
   const [PostTitleState, setPostTitleState] = useState(``)
   const [PostContentState, setPostContentState] = useState(``)
+  const [showToast, setShowToast] = useState(false)
 
   const api = new GhostAdminAPI({
     url: siteName,
@@ -71,35 +74,54 @@ const CreatePost = () => {
       )
       .catch(err => console.log(err))
 
+    setShowToast(true)
     setPostTitleState(``)
     setPostContentState(``)
   }
 
   return (
-    <form
-      className={`form`}
-      method="post"
-      onSubmit={(event) => {
-        handleSubmit(event)
-      }}>
-      <div className="form-group">
-        <label className={`label d-block`}>
-          <span className="sr-only">Title</span>
-          <input className={`form-control form-control-subtle`} type="text" name="title" value={PostTitleState} onChange={event => setPostTitleState(event.target.value)} />
-        </label>
-      </div>
+    <>
+      <Layout>
+        <form
+          className={`form`}
+          method="post"
+          onSubmit={(event) => {
+            handleSubmit(event)
+          }}>
+          <div className="form-group">
+            <label className={`label d-block`}>
+              <span className="sr-only">Title</span>
+              <input className={`form-control form-control-subtle px-0`} type="text" placeholder="Title (optional)" name="title" value={PostTitleState} onChange={event => setPostTitleState(event.target.value)} />
+            </label>
+          </div>
 
-      <div className="form-group">
-        <label className={`label d-block`}>
-          <span className="sr-only">Content</span>
-          <textarea className={`form-control`} type="text" name="content" value={PostContentState} onChange={event => setPostContentState(event.target.value)} />
-        </label>
-      </div>
+          <div className="form-group">
+            <label className={`label d-block`}>
+              <span className="sr-only">Content</span>
+              <textarea className={`form-control form-control-subtle px-0`} type="text" placeholder="Start typing something..." name="content" value={PostContentState} onChange={event => setPostContentState(event.target.value)} />
+            </label>
+          </div>
 
-      <div className="text-right">
-        <input className={`btn btn-primary`} type="submit" value="Share" />
+          <div className="text-right">
+            <input className="btn btn-primary text-lowercase" type="submit" value="Share" />
+          </div>
+        </form>
+      </Layout>
+      <div
+        style={{
+          position: `absolute`,
+          bottom: `20px`,
+          right: `20px`,
+        }}
+      >
+        <Toast onClose={() => setShowToast(false)} show={showToast} delay={3000} autohide>
+          <Toast.Header>
+            <strong className="mr-auto">Notice</strong>
+          </Toast.Header>
+          <Toast.Body>Post Created.</Toast.Body>
+        </Toast>
       </div>
-    </form>
+    </>
   )
 }
 
