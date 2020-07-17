@@ -4,12 +4,10 @@ import LoginWrapper from '../components/LoginWrapper'
 import CreatePost from '../components/CreatePost'
 
 const IndexPage = () => (
-  <>
-    <SEO title="Share something..." />
-    <LoginWrapper>
-      <CreatePost />
-    </LoginWrapper>
-  </>
+  <LoginWrapper>
+    <SEO title = "Share something..." />
+    <CreatePost />
+  </LoginWrapper>
 )
 
 export default IndexPage

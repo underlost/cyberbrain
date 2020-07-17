@@ -15,8 +15,6 @@ const LoginPage = () => {
 
   if (isLoggedIn()) {
     navigate(`/`)
-  } else {
-    return null
   }
 
   const handleSubmit = (event) => {
@@ -32,17 +30,6 @@ const LoginPage = () => {
     <>
       <Layout>
         <SEO title="Login" />
-        state:
-        <br />
-        URL: {siteNameState} <br />
-        API: {siteAPIState} <br />
-        <hr />
-        localStorage:
-        <br />
-        URL: {siteName} <br />
-        API: {siteAPI} <br />
-        guid: {getCurrentUser().guid}
-        <hr />
         <form
           className={`form`}
           method="post"

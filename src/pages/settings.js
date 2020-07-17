@@ -9,8 +9,6 @@ import { getCurrentUser, updateUser } from '../util/storage'
 const SettingsPage = () => {
   const siteName = getCurrentUser().siteName
   const siteAPI = getCurrentUser().siteAPI
-
-  //Handle states
   const [siteNameState, setSiteNameState] = useState(siteName)
   const [siteAPIState, setSiteAPIState] = useState(siteAPI)
 

@@ -7,7 +7,9 @@ const LogginWrapper = ({ children }) => {
   if (isLoggedIn()) {
     return <div className="loggedIn">{children}</div>
   } else {
-    navigate(`/login`)
+    if (typeof window !== `undefined`) {
+      navigate(`/login`)
+    }
     return null
   }
 }

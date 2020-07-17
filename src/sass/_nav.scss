@@ -45,8 +45,8 @@
   height: auto;
   opacity: 0;
   .menu-item {
-    font-size: 3rem;
-    letter-spacing: 2px;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
     line-height: 1.5;
     font-weight: 800;
     a {
@@ -55,7 +55,6 @@
       &.active,
       &:hover {
         text-decoration: none;
-        color: $primary;
       }
     }
   }
@@ -102,9 +101,15 @@
 }
 
 @include media-breakpoint-up(md) {
-  .site-nav .menu-item {
-    font-size: 4rem;
+  .site-nav {
+    margin-top: 3rem;
+    .menu-item {
+      font-size: 1.2rem;
+      padding-top: .5rem;
+      padding-bottom: .5rem;
+    }
   }
+
 }
 
 @include media-breakpoint-up(lg) {

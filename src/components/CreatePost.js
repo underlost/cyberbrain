@@ -66,7 +66,7 @@ const CreatePost = () => {
         api.posts
           .add({
             title: title,
-            tags: [`#thoughts`],
+            tags: [`#blip`],
             mobiledoc: mobiledoc,
           })
           .then(res => console.log(JSON.stringify(res)))
@@ -118,7 +118,7 @@ const CreatePost = () => {
           <Toast.Header>
             <strong className="mr-auto">Notice</strong>
           </Toast.Header>
-          <Toast.Body>Post Created.</Toast.Body>
+          <Toast.Body>A new post was sucessfully created.</Toast.Body>
         </Toast>
       </div>
     </>
