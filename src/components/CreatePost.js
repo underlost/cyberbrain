@@ -66,7 +66,7 @@ const CreatePost = () => {
         api.posts
           .add({
             title: title,
-            tags: [`#blip`],
+            tags: [`#aside`],
             mobiledoc: mobiledoc,
           })
           .then(res => console.log(JSON.stringify(res)))
