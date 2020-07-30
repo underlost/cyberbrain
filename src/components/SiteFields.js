@@ -21,20 +21,20 @@ function AddFieldNameForm({ addFieldName }) {
       <div className="row mb-2">
         <div className="col-4">
           <div className="input-group mb-3">
-            <select className="custom-select" id="inputGroupSelect01" onChange={e => setKey(e.target.value)}>
+            <select className="custom-select" id="inputGroupSelect01" onChange={(e) => setKey(e.target.value)}>
               <option selected>Key</option>
               {getCurrentFields().fields
                 ? getCurrentFields().fields.map((fieldname, index) => (
-                  <option key={index} index={index} value={fieldname.text}>
-                    {fieldname.text}
-                  </option>
-                ))
+                    <option key={index} index={index} value={fieldname.text}>
+                      {fieldname.text}
+                    </option>
+                  ))
                 : null}
             </select>
           </div>
         </div>
         <div className="col-8">
-          <input type="text" className="input form-control" value={value} placeholder="Value" onChange={e => setValue(e.target.value)} />
+          <input type="text" className="input form-control" value={value} placeholder="Value" onChange={(e) => setValue(e.target.value)} />
         </div>
       </div>
 

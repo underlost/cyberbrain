@@ -36,9 +36,12 @@
     "react-bootstrap": "^1.2.2",
     "react-dom": "^16.13.0",
     "react-helmet": "^6.0.0",
+    "react-markdown": "^4.3.1",
+    "react-mde": "^10.1.0",
     "react-reveal": "^1.2.2",
     "remarkable": "^2.0.0",
-    "sharp": "^0.25.2"
+    "sharp": "^0.25.2",
+    "showdown": "^1.9.1"
   },
   "devDependencies": {
     "@types/react": "^16.0.0",

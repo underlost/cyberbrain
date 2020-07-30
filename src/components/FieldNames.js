@@ -18,7 +18,7 @@ function AddFieldNameForm({ addFieldName }) {
   return (
     <form className="mb-5" onSubmit={handleSubmit}>
       <div className="form-group">
-        <input type="text" className="input form-control" placeholder="New Key" value={value} onChange={e => setValue(e.target.value)} />
+        <input type="text" className="input form-control" placeholder="New Key" value={value} onChange={(e) => setValue(e.target.value)} />
       </div>
       <button className="btn btn-primary btn-block text-uppercase">Add new field type</button>
     </form>

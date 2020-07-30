@@ -7,7 +7,7 @@ import Nav from './Nav'
 const LogginWrapper = ({ children }) => {
   const [menuState, setMenuState] = useState(`nav-is-closed`)
   const toggleMenu = () => {
-    setMenuState(state => (state === `nav-is-closed` ? `nav-is-active` : `nav-is-closed`))
+    setMenuState((state) => (state === `nav-is-closed` ? `nav-is-active` : `nav-is-closed`))
   }
 
   if (isLoggedIn()) {

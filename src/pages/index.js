@@ -5,7 +5,7 @@ import CreatePost from '../components/CreatePost'
 
 const IndexPage = () => (
   <LoginWrapper>
-    <SEO title = "Share something..." />
+    <SEO title="Share something..." />
     <CreatePost />
   </LoginWrapper>
 )

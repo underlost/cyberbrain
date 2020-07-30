@@ -22,7 +22,6 @@ const DebugPage = () => {
           API: {siteAPI} <br />
           guid: {getCurrentUser().guid}
         </pre>
-
       </Layout>
     </LoginWrapper>
   )

@@ -35,13 +35,13 @@ const SettingsPage = () => {
           <div className="form-group">
             <label className={`label d-block`}>
               URL
-              <input className={`form-control`} type="text" name="siteName" value={siteNameState} onChange={event => setSiteNameState(event.target.value)} />
+              <input className={`form-control`} type="text" name="siteName" value={siteNameState} onChange={(event) => setSiteNameState(event.target.value)} />
             </label>
           </div>
           <div className="form-group">
             <label className={`label d-block`}>
               API Key
-              <input className={`form-control`} type="text" name="siteAPI" value={siteAPIState} onChange={event => setSiteAPIState(event.target.value)} />
+              <input className={`form-control`} type="text" name="siteAPI" value={siteAPIState} onChange={(event) => setSiteAPIState(event.target.value)} />
             </label>
           </div>
           <input className={`btn btn-block btn-primary text-uppercase`} type="submit" value="Update Settings" />

@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import GhostAdminAPI from '@tryghost/admin-api'
+import ReactMde from 'react-mde'
+import * as Showdown from 'showdown'
 import { getCurrentUser } from '../util/storage'
 import path from 'path'
 import Toast from 'react-bootstrap/Toast'
@@ -11,6 +13,14 @@ const CreatePost = () => {
   const [PostTitleState, setPostTitleState] = useState(``)
   const [PostContentState, setPostContentState] = useState(``)
   const [showToast, setShowToast] = useState(false)
+  const [selectedTab, setSelectedTab] = useState(`write`)
+
+  const converter = new Showdown.Converter({
+    tables: true,
+    simplifiedAutoLink: true,
+    strikethrough: true,
+    tasklists: true,
+  })
 
   const api = new GhostAdminAPI({
     url: siteName,
@@ -35,7 +45,7 @@ const CreatePost = () => {
       )
     }
     return Promise.all(imagePromises).then((images) => {
-      images.forEach(image => (html = html.replace(image.ref, image.url)))
+      images.forEach((image) => (html = html.replace(image.ref, image.url)))
       return html
     })
   }
@@ -69,10 +79,10 @@ const CreatePost = () => {
             tags: [`#aside`],
             mobiledoc: mobiledoc,
           })
-          .then(res => console.log(JSON.stringify(res)))
-          .catch(err => console.log(err))
+          .then((res) => console.log(JSON.stringify(res)))
+          .catch((err) => console.log(err))
       )
-      .catch(err => console.log(err))
+      .catch((err) => console.log(err))
 
     setShowToast(true)
     setPostTitleState(``)
@@ -82,38 +92,56 @@ const CreatePost = () => {
   return (
     <>
       <Layout>
-        <form
-          className={`form`}
-          method="post"
-          onSubmit={(event) => {
-            handleSubmit(event)
-          }}>
-          <div className="form-group">
-            <label className={`label d-block`}>
-              <span className="sr-only">Title</span>
-              <input className={`form-control form-control-subtle px-0`} type="text" placeholder="Title (optional)" name="title" value={PostTitleState} onChange={event => setPostTitleState(event.target.value)} />
-            </label>
-          </div>
 
-          <div className="form-group">
-            <label className={`label d-block`}>
-              <span className="sr-only">Content</span>
-              <textarea className={`form-control form-control-subtle px-0`} type="text" placeholder="Start typing something..." name="content" value={PostContentState} onChange={event => setPostContentState(event.target.value)} />
-            </label>
-          </div>
+        <ReactMde
+          value={PostContentState}
+          onChange={setPostContentState}
+          selectedTab={selectedTab}
+          onTabChange={setSelectedTab}
+          generateMarkdownPreview={(markdown) => Promise.resolve(converter.makeHtml(markdown))}
+        />
 
-          <div className="text-right">
-            <input className="btn btn-primary text-lowercase" type="submit" value="Share" />
+        <div className="row  pt-3">
+          <div className="col-9">
+
+            <div className="form-group">
+              <label className={`label d-block`}>
+                <span className="sr-only">Title</span>
+                <input
+                  className={`form-control form-control-subtle px-0`}
+                  type="text"
+                  placeholder="Title (optional)"
+                  name="title"
+                  value={PostTitleState}
+                  onChange={(event) => setPostTitleState(event.target.value)}
+                />
+              </label>
+            </div>
+
           </div>
-        </form>
+          <div className="col-3">
+
+            <form
+              className={`form`}
+              method="post"
+              onSubmit={(event) => {
+                handleSubmit(event)
+              }}>
+              <div className="text-right">
+                <input className="btn btn-primary btn-block text-lowercase" type="submit" value="Share" />
+              </div>
+            </form>
+
+          </div>
+        </div>
+
       </Layout>
       <div
         style={{
           position: `absolute`,
           bottom: `20px`,
           right: `20px`,
-        }}
-      >
+        }}>
         <Toast onClose={() => setShowToast(false)} show={showToast} delay={3000} autohide>
           <Toast.Header>
             <strong className="mr-auto">Notice</strong>
