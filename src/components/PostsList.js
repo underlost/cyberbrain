@@ -18,7 +18,7 @@ const PostsList = ({ pageNumber }) => {
   })
   api.posts
     .browse({
-      limit: 15,
+      limit: 5,
       page: currentPageState,
     })
     .then((postsData) => {
@@ -31,18 +31,18 @@ const PostsList = ({ pageNumber }) => {
 
   return (
     <>
-      {posts.map((obj) => (
+      {posts.map(obj => (
         <PostItem data={obj} key={obj.id} />
       ))}
       Current Page: {currentPageState}
       <div className="row">
         <div className="col-6">
-          <button className="btn btn block btn-primary btn-block" onClick={() => setcurrentPageState((prevState) => prevState - 1)}>
+          <button className="btn btn block btn-primary btn-block" onClick={() => setcurrentPageState(prevState => prevState - 1)}>
             Previous
           </button>
         </div>
         <div className="col-6">
-          <button className="btn btn block btn-primary btn-block" onClick={() => setcurrentPageState((prevState) => prevState + 1)}>
+          <button className="btn btn block btn-primary btn-block" onClick={() => setcurrentPageState(prevState => prevState + 1)}>
             Next
           </button>
         </div>

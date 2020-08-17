@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import GhostAdminAPI from '@tryghost/admin-api'
 import ReactMde from 'react-mde'
+import dayjs from 'dayjs'
 import * as Showdown from 'showdown'
 import { getCurrentUser } from '../util/storage'
 import path from 'path'
@@ -8,9 +9,10 @@ import Toast from 'react-bootstrap/Toast'
 import Layout from './layout'
 
 const CreatePost = () => {
+  const dateTile = dayjs().format(`ddd, MMM D, YYYY h:mm A`)
   const siteName = getCurrentUser().siteName
   const siteAPI = getCurrentUser().siteAPI
-  const [PostTitleState, setPostTitleState] = useState(``)
+  const [PostTitleState, setPostTitleState] = useState(dateTile)
   const [PostContentState, setPostContentState] = useState(``)
   const [showToast, setShowToast] = useState(false)
   const [selectedTab, setSelectedTab] = useState(`write`)
@@ -45,7 +47,7 @@ const CreatePost = () => {
       )
     }
     return Promise.all(imagePromises).then((images) => {
-      images.forEach((image) => (html = html.replace(image.ref, image.url)))
+      images.forEach(image => (html = html.replace(image.ref, image.url)))
       return html
     })
   }
@@ -79,10 +81,10 @@ const CreatePost = () => {
             tags: [`#aside`],
             mobiledoc: mobiledoc,
           })
-          .then((res) => console.log(JSON.stringify(res)))
-          .catch((err) => console.log(err))
+          .then(res => console.log(JSON.stringify(res)))
+          .catch(err => console.log(err))
       )
-      .catch((err) => console.log(err))
+      .catch(err => console.log(err))
 
     setShowToast(true)
     setPostTitleState(``)
@@ -92,18 +94,16 @@ const CreatePost = () => {
   return (
     <>
       <Layout>
-
         <ReactMde
           value={PostContentState}
           onChange={setPostContentState}
           selectedTab={selectedTab}
           onTabChange={setSelectedTab}
-          generateMarkdownPreview={(markdown) => Promise.resolve(converter.makeHtml(markdown))}
+          generateMarkdownPreview={markdown => Promise.resolve(converter.makeHtml(markdown))}
         />
 
         <div className="row  pt-3">
           <div className="col-9">
-
             <div className="form-group">
               <label className={`label d-block`}>
                 <span className="sr-only">Title</span>
@@ -113,14 +113,12 @@ const CreatePost = () => {
                   placeholder="Title (optional)"
                   name="title"
                   value={PostTitleState}
-                  onChange={(event) => setPostTitleState(event.target.value)}
+                  onChange={event => setPostTitleState(event.target.value)}
                 />
               </label>
             </div>
-
           </div>
           <div className="col-3">
-
             <form
               className={`form`}
               method="post"
@@ -131,10 +129,8 @@ const CreatePost = () => {
                 <input className="btn btn-primary btn-block text-lowercase" type="submit" value="Share" />
               </div>
             </form>
-
           </div>
         </div>
-
       </Layout>
       <div
         style={{

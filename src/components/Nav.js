@@ -9,16 +9,19 @@ const Nav = () => (
           <Link to="/">Home</Link>
         </li>
         <li className="menu-item">
-          <Link to="/settings">Settings</Link>
+          <Link to="/about/">About</Link>
         </li>
         <li className="menu-item">
-          <Link to="/logout">Logout</Link>
+          <Link to="/settings/">Settings</Link>
         </li>
         <li className="menu-item">
-          <Link to="/fields">Fields</Link>
+          <Link to="/logout/">Logout</Link>
         </li>
         <li className="menu-item">
-          <Link to="/debug">Debug Menu</Link>
+          <Link to="/fields/">Fields</Link>
+        </li>
+        <li className="menu-item">
+          <Link to="/debug/">Debug Menu</Link>
         </li>
       </ul>
     </nav>

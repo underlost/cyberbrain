@@ -2,13 +2,13 @@ import API from './api'
 
 const isBrowser = typeof window !== `undefined`
 const getUser = () => (window.localStorage.cyberbrainUser ? JSON.parse(window.localStorage.cyberbrainUser) : {})
-const setUser = (user) => (window.localStorage.cyberbrainUser = JSON.stringify(user))
+const setUser = user => (window.localStorage.cyberbrainUser = JSON.stringify(user))
 
-const setFields = (fields) => (window.localStorage.cyberbrainDataFields = JSON.stringify(fields))
+const setFields = fields => (window.localStorage.cyberbrainDataFields = JSON.stringify(fields))
 const getFields = () => (window.localStorage.cyberbrainDataFields ? JSON.parse(window.localStorage.cyberbrainDataFields) : {})
 export const getCurrentFields = () => isBrowser && getFields()
 
-const setSiteFields = (fields) => (window.localStorage.cyberbrainDataSiteFields = JSON.stringify(fields))
+const setSiteFields = fields => (window.localStorage.cyberbrainDataSiteFields = JSON.stringify(fields))
 const getSiteFields = () => (window.localStorage.cyberbrainDataSiteFields ? JSON.parse(window.localStorage.cyberbrainDataSiteFields) : {})
 export const getCurrentSiteFields = () => isBrowser && getSiteFields()
 

@@ -10,5 +10,6 @@
     vertical-align: top;
     resize: none;
     overflow-y: auto;
+    background-color: darken($main-bg, 5%);
   }
 }
