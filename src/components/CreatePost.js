@@ -80,6 +80,7 @@ const CreatePost = () => {
             title: title,
             tags: [`#aside`],
             mobiledoc: mobiledoc,
+            status: `published`,
           })
           .then(res => console.log(JSON.stringify(res)))
           .catch(err => console.log(err))
